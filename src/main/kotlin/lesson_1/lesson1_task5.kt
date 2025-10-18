@@ -1,17 +1,15 @@
 package org.example.lesson_1
 
+const val SECONDS_PER_HOUR = 3600
+const val SECONDS_PER_MINUTE = 60
+
 fun main() {
-    val length: Long = 40_868_600_000
-    val age: Byte = 27
-    val partOfDay: Float = 0.075f
-    val seconds: Short = 6480
-    val partOfYear: Double = 2.0547945205479453E-4
-    val apogee: Int = 327000
+    val totalSeconds: Short = 6480
 
-    val hours = seconds/3600
-    val secondsWithoutHours = seconds % 3600
-    val minutes = secondsWithoutHours / 60
-    val secondsLeft = secondsWithoutHours % 60
+    val hours = totalSeconds / SECONDS_PER_HOUR
+    val secondsWithoutHours = totalSeconds % SECONDS_PER_HOUR
+    val minutes = secondsWithoutHours / SECONDS_PER_MINUTE
+    val seconds = secondsWithoutHours % SECONDS_PER_MINUTE
 
-    println("0$hours:$minutes:0$secondsLeft")
+    println("%02d:%02d:%02d".format(hours, minutes, seconds))
 }
