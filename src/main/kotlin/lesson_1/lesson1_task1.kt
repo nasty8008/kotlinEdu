@@ -1,6 +1,6 @@
 package org.example.lesson_1
 
 fun main() {
-    println("Hello World!")
-    println("Goodbye World!")
+    val amountOfOrders: Int = 75
+    val thanksText: String = "Спасибо за покупку! Приходите ещё."
 }
