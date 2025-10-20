@@ -4,7 +4,7 @@ const val DAY_GREETING = "Добрый день"
 const val EVENING_GREETING = "Добрый вечер"
 
 fun main() {
-    val userName = "Настя"
+    val userName = "Анастасия"
     var greetMessage: String
 
     greetMessage = "$DAY_GREETING, $userName!"
