@@ -1,20 +1,24 @@
 package lesson_5
 
-const val RIGHT_ANSWER = 1
-
 fun main() {
+
+    val number1 = (0..10).random()
+    val number2 = (0..10).random()
+
+    val rightAnswer = number1 + number2
+
     println(
         """
         Здравствуйте!
         
-        Докажите, что вы не бот решив этот пример: limₙ→∞ ∫₀¹ n·xⁿ⁻¹ dx
+        Докажите, что вы не бот решив этот пример: $number1 + $number2}
     """.trimIndent()
     )
 
     print("Введите ответ: ")
     val userAnswer = readln().toInt()
 
-    if (userAnswer == RIGHT_ANSWER) {
+    if (userAnswer == rightAnswer) {
         println("Добро пожаловать!")
     } else println("Доступ запрещен.")
 }
