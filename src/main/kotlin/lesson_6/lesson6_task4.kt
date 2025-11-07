@@ -4,16 +4,17 @@ fun main() {
     val winNumber = (1..9).random()
     var triesLeft = 5
 
-    while (triesLeft > 0) {
-        triesLeft--
+    do {
         println("Угадайте число от 1 до 9:")
         val guessNumber = readln().toInt()
         if (guessNumber == winNumber) {
             println("Это была великолепная игра!")
-            triesLeft = 0
+            return
+        } else {
+            --triesLeft
+            println("Неверно. Осталось попыток: $triesLeft")
         }
-        else println("Неверно")
-    }
+    } while (triesLeft > 0)
 
     println("Было загадано число $winNumber")
 }
