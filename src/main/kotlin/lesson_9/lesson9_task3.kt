@@ -5,10 +5,10 @@ const val MILK_PER_PORTION = 50
 const val BUTTER_PER_PORTION = 15
 
 fun main() {
-    val ingredientsForOnePortion = mutableListOf(EGGS_PER_PORTION, MILK_PER_PORTION, BUTTER_PER_PORTION)
+    val ingredientsForOnePortion = listOf(EGGS_PER_PORTION, MILK_PER_PORTION, BUTTER_PER_PORTION)
     println("Сколько порций вы хотите сделать?")
     val amountOfPortions = readln().toInt()
-    val totalIngredients = ingredientsForOnePortion.map { ingredient: Int ->
+    val totalIngredients = ingredientsForOnePortion.map { ingredient ->
         ingredient * amountOfPortions
     }
     println(
