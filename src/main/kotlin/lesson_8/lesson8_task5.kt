@@ -3,14 +3,13 @@ package lesson_8
 fun main() {
     print("Введите количество ингредиентов в рецепте: ")
     val amountOfIngredients = readln().toInt()
-    val listOfIngredients = Array(amountOfIngredients) { "" }
+    val ingredients = Array(amountOfIngredients) { "" }
 
     println("Введите все ингредиенты, каждый с новой строки:")
-    for (i in 0 until amountOfIngredients) {
+    for (i in ingredients.indices) {
         print("${i + 1}. ")
-        val ingredient = readln()
-        listOfIngredients[i] = ingredient
+        ingredients[i] = readln()
     }
 
-    println("Список ингредиентов: ${listOfIngredients.joinToString()}")
+    println("Список ингредиентов: ${ingredients.joinToString()}")
 }
