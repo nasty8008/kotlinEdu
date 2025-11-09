@@ -1,22 +1,22 @@
 package lesson_9
 
 fun main() {
-    val listOfIngredients = mutableListOf("яйца", "молоко", "соль")
+    val ingredients = mutableListOf("яйца", "молоко", "соль")
     println("В рецепте есть базовые ингредиенты:")
-    listOfIngredients.forEach { ingredient: String ->
+    ingredients.forEach { ingredient ->
         println("• $ingredient")
     }
 
     println("Желаете добавить еще?")
     val answer = readln()
-    if (answer.equals("да", true)) {
+    if (answer.equals("да", ignoreCase = true)) {
         println("Какой ингредиент вы хотите добавить?")
         val newIngredient = readln()
-        listOfIngredients.add(newIngredient)
-    } else return
+        ingredients.add(newIngredient)
 
-    println("Теперь в рецепте есть следующие ингредиенты:")
-    listOfIngredients.forEach { ingredient: String ->
-        println("• $ingredient")
+        println("Теперь в рецепте есть следующие ингредиенты:")
+        ingredients.forEach { ingredient ->
+            println("• $ingredient")
+        }
     }
 }
