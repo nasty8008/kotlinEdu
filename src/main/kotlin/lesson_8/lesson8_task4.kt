@@ -1,7 +1,7 @@
 package lesson_8
 
 fun main() {
-    val listOfIngredients = arrayOf(
+    val ingredients = arrayOf(
         "лаваш",
         "филе курицы",
         "помидоры",
@@ -17,12 +17,13 @@ fun main() {
     )
 
     println("Список ингредиентов:")
-    for (ingredient in listOfIngredients) println("• $ingredient")
+    for (ingredient in ingredients) println("• $ingredient")
 
     println("\nКакой ингредиент из списка вы хотите заменить?")
     val oldIngredient = readln()
 
-    if (oldIngredient !in listOfIngredients) {
+    val oldIngredientIndex = ingredients.indexOf(oldIngredient)
+    if (oldIngredientIndex < 0) {
         println("Такого ингредиента нет в списке")
         return
     }
@@ -30,7 +31,7 @@ fun main() {
     println("\nНа какой ингредиент вы хотите его заменить?")
     val newIngredient = readln()
 
-    listOfIngredients[listOfIngredients.indexOf(oldIngredient)] = newIngredient
+    ingredients[oldIngredientIndex] = newIngredient
     println("\nГотово! Вы сохранили следующий список: ")
-    for (ingredient in listOfIngredients) println("• $ingredient")
+    for (ingredient in ingredients) println("• $ingredient")
 }
