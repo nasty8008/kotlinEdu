@@ -14,7 +14,7 @@ class User2(
             Логин: $login
             Пароль: $password
             Почта: $email
-            О себе: ${if (bio != null) bio else "тут пока ничего нет :("}
+            О себе: ${bio ?: "Нет данных"}
     """.trimIndent()
         )
     }
