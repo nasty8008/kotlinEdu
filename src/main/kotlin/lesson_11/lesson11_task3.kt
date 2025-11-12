@@ -1,7 +1,7 @@
 package lesson_11
 
 class User(
-    var userName: String,
+    var name: String,
     val profilePic: String? = null,
     var status: String,
 )
@@ -12,24 +12,25 @@ class Room(
     var userList: MutableList<User> = mutableListOf(),
 ) {
     fun addUser(user: User) {
-        userList.add(user)
+        if (user !in userList) userList.add(user) else println("Такой пользователь уже есть")
     }
 
-    fun updateUserStatus(user: User, status: String) {
-        val userIndex = userList.indexOf(user)
-        userList[userIndex].status = status
+    fun updateUserStatus(userName: String, newStatus: String) {
+        userList.forEach {
+            if (it.name == userName) it.status = newStatus
+        }
     }
 }
 
 fun main() {
     val statusOptions = listOf("разговаривает", "микрофон выключен", "пользователь заглушен")
     val user1 = User(
-        userName = "nasty8008",
+        name = "nasty8008",
         status = statusOptions[1],
     )
 
     val user2 = User(
-        userName = "ne_nasty8008",
+        name = "ne_nasty8008",
         status = statusOptions[2],
     )
 
@@ -40,11 +41,11 @@ fun main() {
     testRoom.addUser(user1)
     testRoom.addUser(user2)
     testRoom.userList.forEach { user ->
-        println("${user.userName}: ${user.status}")
+        println("${user.name}: ${user.status}")
     }
 
-    testRoom.updateUserStatus(user = user2, status = statusOptions[0])
+    testRoom.updateUserStatus(userName = "ne_nasty8008", newStatus = statusOptions[0])
     testRoom.userList.forEach { user ->
-        println("${user.userName}: ${user.status}")
+        println("${user.name}: ${user.status}")
     }
 }
