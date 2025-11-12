@@ -6,7 +6,6 @@ class Category(
 )
 
 class Recipe(
-    val category: Category,
     val name: String,
     var ingredients: MutableList<Ingredient> = mutableListOf(),
     var amountOfPortions: Int = 1,
