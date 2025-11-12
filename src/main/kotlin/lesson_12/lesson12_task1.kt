@@ -8,9 +8,9 @@ class WeatherInfo() {
     fun getWeather() {
         println(
             """
-            Температура днём: ${dayTemp}
-            Температура ночью: ${nightTemp}
-            Вероятность осадков: ${isPrecipitationCondition}
+            Температура днём: $dayTemp
+            Температура ночью: $nightTemp
+            Вероятность осадков: $isPrecipitationCondition
         """.trimIndent()
         )
     }
