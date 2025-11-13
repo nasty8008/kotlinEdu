@@ -11,8 +11,13 @@ class Room(
     val roomPic: String? = null,
     var userList: MutableList<User> = mutableListOf(),
 ) {
-    fun addUser(user: User) {
-        if (user !in userList) userList.add(user) else println("Такой пользователь уже есть")
+    fun addUser(_name: String, _status: String = "пользователь заглушен") {
+        if (userList.any { user ->  user.name == _name}) {
+            println("Такой пользователь уже есть")
+            return
+        }
+        val newUser = User(name = _name, status = _status)
+        userList.add(newUser)
     }
 
     fun updateUserStatus(userName: String, newStatus: String) {
@@ -24,22 +29,12 @@ class Room(
 
 fun main() {
     val statusOptions = listOf("разговаривает", "микрофон выключен", "пользователь заглушен")
-    val user1 = User(
-        name = "nasty8008",
-        status = statusOptions[1],
-    )
-
-    val user2 = User(
-        name = "ne_nasty8008",
-        status = statusOptions[2],
-    )
-
     val testRoom = Room(
         roomName = "test room",
     )
 
-    testRoom.addUser(user1)
-    testRoom.addUser(user2)
+    testRoom.addUser("nasty8008", statusOptions[1])
+    testRoom.addUser("ne_nasty8008")
     testRoom.userList.forEach { user ->
         println("${user.name}: ${user.status}")
     }
