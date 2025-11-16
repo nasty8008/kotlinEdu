@@ -5,7 +5,7 @@ class Contact(
     val phone: Long,
     val company: String? = null,
 ) {
-    fun getContactInfo() {
+    fun printContactInfo() {
         println(
             "- Имя: $name\n" +
             "- Номер: $phone\n" +
@@ -18,6 +18,5 @@ fun main() {
     Contact(
         name = "Анастасия",
         phone = 89998914371,
-    ).getContactInfo()
+    ).printContactInfo()
 }
-
