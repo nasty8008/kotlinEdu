@@ -1,6 +1,6 @@
 package lesson_11
 
-class User(
+class User3(
     var name: String,
     val profilePic: String? = null,
     var status: String,
@@ -9,14 +9,14 @@ class User(
 class Room(
     val roomName: String,
     val roomPic: String? = null,
-    var userList: MutableList<User> = mutableListOf(),
+    var userList: MutableList<User3> = mutableListOf(),
 ) {
     fun addUser(_name: String, _status: String = "пользователь заглушен") {
         if (userList.any { user ->  user.name == _name}) {
             println("Такой пользователь уже есть")
             return
         }
-        val newUser = User(name = _name, status = _status)
+        val newUser = User3(name = _name, status = _status)
         userList.add(newUser)
     }
 
