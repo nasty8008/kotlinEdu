@@ -2,11 +2,11 @@ package lesson_10
 
 fun main() {
     print("Кости бросает пользователь. Результат:")
-    val userScore = diceToss()
+    val userScore = diceTossing()
     println(userScore)
 
     print("Кости бросает компьютер. Результат:")
-    val computerScore = diceToss()
+    val computerScore = diceTossing()
     println(computerScore)
 
     if (userScore > computerScore) {
@@ -16,7 +16,7 @@ fun main() {
     } else println("Победила дружба")
 }
 
-fun diceToss(): Int {
+fun diceTossing(): Int {
     val diceRange = 1..6
     return diceRange.random()
 }
