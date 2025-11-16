@@ -1,5 +1,7 @@
 package lesson_12
 
+import kotlin.random.Random
+
 const val DAYS_PER_MONTH = 30
 
 class WeatherInfoData(
@@ -12,19 +14,17 @@ fun main() {
     val monthWeather = mutableListOf<WeatherInfoData>()
     val dayTemperatureRange = 15..30
     val nightTemperatureRange = 5..20
-    val precipitationOptions = listOf(true, false)
 
-    repeat(DAYS_PER_MONTH, {
+    repeat(DAYS_PER_MONTH) {
         monthWeather.add(
             WeatherInfoData(
                 dayTemperature = dayTemperatureRange.random(),
                 nightTemperature = nightTemperatureRange.random(),
-                isPrecipitationCondition = precipitationOptions.random()
+                isPrecipitationCondition = Random.nextBoolean()
             )
         )
     }
-    )
-    println(monthWeather.size)
+
 
     val dayTemperatures = monthWeather.map { it.dayTemperature }
     val nightTemperatures = monthWeather.map { it.nightTemperature }
@@ -32,7 +32,7 @@ fun main() {
     val averageDayTemp = dayTemperatures.average()
     val averageNightTemp = nightTemperatures.average()
 
-    val daysWithPrecipitation = monthWeather.count {it.isPrecipitationCondition}
+    val daysWithPrecipitation = monthWeather.count { it.isPrecipitationCondition }
 
     println("Средняя дневная температура: ${"%.1f".format(averageDayTemp)}°C")
     println("Средняя ночная температура: ${"%.1f".format(averageNightTemp)}°C")
