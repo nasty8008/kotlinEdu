@@ -1,15 +1,17 @@
 package lesson_12
 
-class WeatherData {
-    var dayTemp = 0
-    var nightTemp = 0
-    var isPrecipitationCondition = false
+const val CELSIUS_KELVIN_OFFSET = 273.15
+
+class WeatherData(kelvinDayTemp: Int, kelvinNightTemp: Int, _isPrecipitationCondition: Boolean = false) {
+    var dayTemp = kelvinDayTemp - CELSIUS_KELVIN_OFFSET
+    var nightTemp = kelvinNightTemp - CELSIUS_KELVIN_OFFSET
+    var isPrecipitationCondition = _isPrecipitationCondition
 
     fun getWeather() {
         println(
             """
-                Температура днём: ${"%.1f".format(dayTemp - 237.15)}°С
-                Температура ночью: ${"%.1f".format(nightTemp - 237.15)}°С
+                Температура днём: ${"%.1f".format(dayTemp)}°С
+                Температура ночью: ${"%.1f".format(nightTemp)}°С
                 Вероятность осадков: $isPrecipitationCondition
             """.trimIndent()
         )
@@ -17,10 +19,9 @@ class WeatherData {
 }
 
 fun main() {
-    WeatherData().apply {
-        dayTemp = 257
-        nightTemp = 251
-        isPrecipitationCondition = true
-        getWeather()
-    }
+    WeatherData(
+        kelvinDayTemp = 257,
+        kelvinNightTemp = 251,
+        _isPrecipitationCondition = true
+    ).getWeather()
 }
