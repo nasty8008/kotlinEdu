@@ -1,5 +1,7 @@
 package lesson_12
 
+const val CELSIUS_KELVIN_OFFSET = 273.15
+
 class WeatherInformationData(
     val dayTemp: Int,
     val nightTemp: Int,
@@ -8,8 +10,8 @@ class WeatherInformationData(
     init {
         println(
             """
-                Температура днём: ${"%.1f".format(dayTemp - 237.15)}°С
-                Температура ночью: ${"%.1f".format(nightTemp - 237.15)}°С
+                Температура днём: ${"%.1f".format(dayTemp - CELSIUS_KELVIN_OFFSET)}°С
+                Температура ночью: ${"%.1f".format(nightTemp - CELSIUS_KELVIN_OFFSET)}°С
                 Вероятность осадков: $isPrecipitationCondition
             """.trimIndent()
         )
