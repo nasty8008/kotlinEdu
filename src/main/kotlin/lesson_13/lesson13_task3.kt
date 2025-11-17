@@ -17,8 +17,9 @@ fun main() {
 
     println("Список всех компаний, которые есть в телефонной книге:")
     telephoneRecords
-        .filter { it.company != null && it.company != "null" }
-        .map { it.company }
+        .mapNotNull {
+            it.company
+        }
         .distinct()
         .forEach {
             println("• $it")
