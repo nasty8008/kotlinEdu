@@ -9,9 +9,9 @@ open class LinerShip(
     fun printShipInfo() {
         println(
             """
-            • Скорость: ${speed} км/ч
-            • Вместительность: ${maxCapacity} пассажиров
-            • Грузоподъёмность: ${maxPayload} т
+            • Скорость: $speed км/ч
+            • Вместительность: $maxCapacity пассажиров
+            • Грузоподъёмность: $maxPayload т
             • Может колоть лёд: $canBreakIce
         """.trimIndent()
         )
