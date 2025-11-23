@@ -1,40 +1,33 @@
 package lesson_15
 
 interface Flying {
-    fun fly() {
-        println("умеет летать")
-    }
+    fun fly() {}
 }
 
 interface Swimming {
-    fun swim() {
-        println("умеет плавать")
-    }
+    fun swim() {}
 }
 
 class Carp : Swimming {
     override fun swim() {
-        print("Карп ")
-        super.swim()
+        println("Карп умеет плавать")
     }
 }
 
 class Seagull : Flying {
     override fun fly() {
-        print("Чайка ")
+        println("Чайка умеет летать")
         super.fly()
     }
 }
 
 class Duck : Swimming, Flying {
     override fun swim() {
-        print("Утка ")
-        super.swim()
+        println("Утка умеет плавать")
     }
 
     override fun fly() {
-        print("Утка ")
-        super.fly()
+        println("Утка умеет летать")
     }
 }
 
