@@ -1,11 +1,11 @@
 package lesson_15
 
 interface Flying {
-    fun fly() {}
+    fun fly()
 }
 
 interface Swimming {
-    fun swim() {}
+    fun swim()
 }
 
 class Carp : Swimming {
@@ -17,7 +17,6 @@ class Carp : Swimming {
 class Seagull : Flying {
     override fun fly() {
         println("Чайка умеет летать")
-        super.fly()
     }
 }
 
