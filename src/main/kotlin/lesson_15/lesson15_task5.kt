@@ -9,16 +9,14 @@ interface TransportPassengers {
     var currentPassengers: Int
 
     fun loadPassengers(passengers: Int) {
-        currentPassengers = (currentPassengers + passengers).coerceAtMost(maxPassengers)
-        println("В машину посадили $currentPassengers пассажира")
+        val newPassengers = currentPassengers + passengers
+        val loadedPassengers = newPassengers.coerceAtMost(maxPassengers) - currentPassengers
+        currentPassengers = newPassengers.coerceAtMost(maxPassengers)
+        println("В машину посадили $loadedPassengers пассажира")
     }
 
     fun unloadPassengers(passengers: Int) {
-        if (passengers > currentPassengers) {
-            println("Ошибка: не могут выйти $passengers пассажиров! В машине только: $currentPassengers")
-            return
-        }
-        currentPassengers -= passengers
+        currentPassengers = (currentPassengers - passengers).coerceAtLeast(0)
         println("Из машины вышли $passengers пассажиров")
     }
 }
@@ -28,16 +26,14 @@ interface TransportCargo {
     var currentCargo: Int
 
     fun loadCargo(cargo: Int) {
-        currentCargo = (currentCargo + cargo).coerceAtMost(maxCargo)
-        println("В машину загрузили $currentCargo т груза")
+        val newCargo = currentCargo + cargo
+        val loadedCargo = newCargo.coerceAtMost(maxCargo) - currentCargo
+        currentCargo = newCargo.coerceAtMost(maxCargo)
+        println("В машину загрузили $loadedCargo т груза")
     }
 
     fun unloadCargo(cargo: Int) {
-        if (cargo > currentCargo) {
-            println("Ошибка: нельзя выгрузить $cargo т груза! В грузовике только: $currentCargo т")
-            return
-        }
-        currentCargo -= cargo
+        currentCargo = (currentCargo - cargo).coerceAtLeast(0)
         println("Из грузовика выгрузили $cargo т груза")
     }
 }
