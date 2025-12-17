@@ -1,13 +1,10 @@
 package lesson_16
 
-class User {
-    private val password = "bebebe"
-    val login = "nasty8008"
-
+class User(private val login: String, private val password: String) {
     fun checkPassword(guess: String) = guess == password
 }
 
 fun main() {
-    val user = User()
+    val user = User(login = "nasty8008", password = "bebebe")
     println(user.checkPassword("bebebe"))
 }
