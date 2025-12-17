@@ -11,7 +11,7 @@ private class User(
         }
 
     var password = _password
-        get() = List(field.length) {"*"}.joinToString("")
+        get() = List(field.length) { "*" }.joinToString("")
         set(value) = println("Вы не можете изменить пароль.")
 }
 
