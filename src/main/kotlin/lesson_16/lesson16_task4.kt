@@ -1,6 +1,6 @@
 package lesson_16
 
-class Order(val orderNumber: Int) {
+class Order(private val orderNumber: Int) {
     private var status = "Заказ создан"
 
     private fun changeStatus(newStatus: String) {
