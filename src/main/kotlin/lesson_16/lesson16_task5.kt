@@ -1,7 +1,7 @@
 package lesson_16
 
 class Player(
-    name: String,
+    val name: String,
 ) {
     private var health = 30
     private var power = 5
@@ -17,8 +17,12 @@ class Player(
     }
 
     fun heal(points: Int) {
-        println("Игрок восстановил $points ОЗ")
-        health += points
+        if (health <= 0) {
+            println("Игрок мертв, вы не можете кго лечить!")
+        } else {
+            println("Игрок восстановил $points ОЗ")
+            health += points
+        }
     }
 
     private fun death() {
@@ -38,5 +42,6 @@ fun main() {
         getHit(10)
         heal(10)
         getHit(100)
+        heal(100)
     }
 }
