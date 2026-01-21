@@ -11,23 +11,17 @@ fun main() {
 }
 
 enum class Category {
-    CLOTHES {
-        override fun getCategoryName(): String {
-            return "Одежда"
-        }
-    },
-    STATIONERY {
-        override fun getCategoryName(): String {
-            return "Канцелярские товары"
-        }
-    },
-    OTHER {
-        override fun getCategoryName(): String {
-            return "Разное"
-        }
-    };
+    CLOTHES,
+    STATIONERY,
+    OTHER;
 
-    abstract fun getCategoryName(): String
+    fun getCategoryName(): String {
+        return when (this) {
+            CLOTHES -> "Одежда"
+            STATIONERY -> "Канцелярские товары"
+            else -> "Разное"
+        }
+    }
 }
 
 class Product(
@@ -40,4 +34,3 @@ class Product(
         println("----------------------------------------------")
     }
 }
-
