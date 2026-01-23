@@ -1,20 +1,26 @@
 package lesson_20
 
 fun main() {
+    val robot = Robot()
+    robot.say()
+    robot.setModifier { phrase ->
+        phrase.reversed()
+    }
+    robot.say()
+}
+
+class Robot {
+    private var modifier: (String) -> String = { it }
     val listOfPhrases =
-        mutableListOf<String>("Привет!", "Я робот", "Я умею разговаривать", "Как тебя зовут?", "Приятно познакомиться!")
-    val number = listOfPhrases.indices.random()
+        mutableListOf("Привет!", "Я робот", "Я умею разговаривать", "Как тебя зовут?", "Приятно познакомиться!")
 
-    fun say(phraseNumber: Int) {
-        println(listOfPhrases[phraseNumber])
+    fun say() {
+        val phrase = listOfPhrases.random()
+        val modifiedPhrase = modifier(phrase)
+        println(modifiedPhrase)
     }
 
-    fun setModifier(phraseNumber: Int, modifier: (Int) -> Unit) {
-        return modifier(phraseNumber)
+    fun setModifier(action: (String) -> String) {
+        modifier = action
     }
-    say(number)
-    setModifier(number) { phraseNumber: Int ->
-        listOfPhrases[phraseNumber] = listOfPhrases[phraseNumber].reversed()
-    }
-    say(number)
 }
