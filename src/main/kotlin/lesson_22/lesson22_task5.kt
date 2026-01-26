@@ -8,13 +8,11 @@ fun main() {
         distance = 4.37,
     )
 
-    val (name, desc, time, dist) = event
-
     println("--- Путеводитель для путешествующих автостопом по Галактике ---")
-    println("Место или событие: $name")
-    println("Описание: $desc")
-    println("Дата и время события: $time")
-    println("Дистанция: $dist световых лет")
+    println("Место или событие: ${event.component1()}")
+    println("Описание: ${event.component2()}")
+    println("Дата и время события: ${event.component3()}")
+    println("Дистанция: ${event.component4()} световых лет")
 }
 
 data class GalacticGuide(
